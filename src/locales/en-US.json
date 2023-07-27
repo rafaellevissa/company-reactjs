@@ -1,0 +1,49 @@
+{
+  "LOGIN": {
+    "TITLE": "Log In",
+    "SUBTITLE": "Input your credentials",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "SUBMIT": "Login",
+    "ERROR": "Please, check your credencials and try it again."
+  },
+  "COMPANY": {
+    "TITLE": "Companies",
+    "SHOW_TITLE": "SHOW COMPANY",
+    "SHOW_SUBTITLE": "The company's information",
+    "ADD_TITLE": "ADD COMPANY",
+    "ADD_SUBTITLE": "Input company information",
+    "DELETE_TITLE": "DELETE COMPANY",
+    "DELETE_CONFIRMATION": "Do you really want to delete this company?",
+    "DELETE_SUBMIT": "Delete",
+    "SUBMIT": "Save",
+    "RESOURCES": {
+      "RESOURCES": {
+        "ID": "ID",
+        "CNPJ": "Cnpj",
+        "CNAE": "Cnae",
+        "COMPANY_NAME": "Company name",
+        "FANTASY_NAME": "Fantasy name",
+        "CREATED_AT": "Created at",
+        "ACTIONS": "Actions"
+      }
+    },
+    "ERROR": "Something went wrong while trying to load resources"
+  },
+  "ASIDEMENU": {
+    "TITLE": "REACTJS CHALLENGE",
+    "LOGOUT": "Logout",
+    "COMPANIES": "Companies"
+  },
+  "ERROR": {
+    "EXPIRED_SESSION": "Your session expired.",
+    "VALIDATION": {
+      "NUMBER": "Must have a number",
+      "MIN": "It was provided less than the minimum characters required",
+      "MAX": "You exceeded the max characters allowed",
+      "EMAIL": "Must be a valid e-mail",
+      "REQUIRED": "The field is required",
+      "DATE": "Must be a valid date"
+    }
+  }
+}

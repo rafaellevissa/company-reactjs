@@ -1,0 +1,49 @@
+{
+  "LOGIN": {
+    "TITLE": "Entrar",
+    "SUBTITLE": "Informe suas credenciais",
+    "EMAIL": "Email",
+    "PASSWORD": "Senha",
+    "SUBMIT": "Entrar",
+    "ERROR": "Por favor, verifique suas credenciais e tente novamente"
+  },
+  "COMPANY": {
+    "TITLE": "Empresas",
+    "SHOW_TITLE": "Empresa",
+    "SHOW_SUBTITLE": "As informações da Empresa",
+    "EDIT_TITLE": "EDITAR EMPRESA",
+    "EDIT_SUBTITLE": "Informe as informações da empresa",
+    "ADD_TITLE": "ADICIONAR Empresa",
+    "ADD_SUBTITLE": "Informe as informações da empresa",
+    "DELETE_TITLE": "DELETAR EMPRESA",
+    "DELETE_CONFIRMATION": "Tem certeza que deseja deletar esta empresa ?",
+    "DELETE_SUBMIT": "Deletar",
+    "SUBMIT": "Salvar",
+    "RESOURCES": {
+      "ID": "ID",
+      "CNPJ": "Cnpj",
+      "CNAE": "Cnae",
+      "COMPANY_NAME": "Razão social",
+      "FANTASY_NAME": "Nome fantasia",
+      "CREATED_AT": "Criado em",
+      "ACTIONS": "Ações"
+    },
+    "ERROR": "Algo deu errado ao tentar carregar os recursos"
+  },
+  "ASIDEMENU": {
+    "TITLE": "REACTJS CHALLENGE",
+    "LOGOUT": "Sair",
+    "COMPANIES": "Empresas"
+  },
+  "ERROR": {
+    "EXPIRED_SESSION": "Sua sessão expirou.",
+    "VALIDATION": {
+      "NUMBER": "Um número deve ser informado",
+      "MIN": "Abaixo do mínimo de caracteres necessários",
+      "MAX": "Você excedeu a quantidade de caracteres permitidos",
+      "EMAIL": "Deve ser um e-mail válido",
+      "REQUIRED": "O campo é obrigatório",
+      "DATE": "Deve ser uma data válida"
+    }
+  }
+}
