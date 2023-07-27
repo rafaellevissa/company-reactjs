@@ -1,9 +1,15 @@
 version: '3.7'
+
+secrets:
+  company-reactjs:
+    external: true
+
 services:
-    app:
-      container_name: web
-      build: .
-      ports:
-        - 80:80
-      environment:
-        - NODE_ENV=development
+  app:
+    image: rafaellevissa/company-reactjs:latest
+    deploy:
+      replicas: 3
+    ports:
+      - 80:80
+    environment:
+      - NODE_ENV=production
