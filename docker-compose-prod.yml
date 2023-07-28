@@ -6,7 +6,9 @@ secrets:
 
 services:
   app:
-    build: .
+    image: rafaellevissa/company-reactjs:latest
+    deploy:
+      replicas: 3
     ports:
       - 3000:80
     environment:
