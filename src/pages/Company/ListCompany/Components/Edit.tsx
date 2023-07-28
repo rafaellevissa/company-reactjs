@@ -1,11 +1,10 @@
 import * as React from 'react';
 import { Formik, FormikConfig, FormikValues, Field } from 'formik'
-import { Button, Container, IconButton, Modal, Paper, Typography, TextField } from "@mui/material";
+import { Button, Container, IconButton, Modal, Paper, Typography, TextField, FormLabel } from "@mui/material";
 import EditIcon from '@mui/icons-material/Edit';
 import { useDispatch, useSelector } from 'react-redux';
-import { companySchema } from '../validator';
+import { compnayUpdateSchema } from '../validator';
 import { find, update } from '../../../../store/modules/company/actions';
-import moment from 'moment'
 import { useTranslation } from '../../../../hooks/use-translation';
 
 const EditModal = (props: any) => {
@@ -35,7 +34,7 @@ const EditModal = (props: any) => {
       cnae: itemEdit?.cnae,
       fantasy_name: itemEdit?.fantasy_name,
     },
-    validationSchema: companySchema,
+    validationSchema: compnayUpdateSchema,
     onSubmit: handleSubmit,
   }
 
@@ -59,12 +58,17 @@ const EditModal = (props: any) => {
             <Formik {...formikConfig}>
               {({ handleSubmit, errors, setFieldValue, values }) => (
                 <form onSubmit={handleSubmit}>
+                  <FormLabel>{translate('COMPANY:RESOURCES:CNAE')}</FormLabel>
                   <Field
+                    sx={{ marginTop: 0 }}
                     name="cnae"
-                    label={translate('COMPANY:RESOURCES:CNAE')}
                     margin="normal"
                     required
                     fullWidth
+                    inputProps={{
+                      maxLength: 7,
+                      minLength: 7,
+                    }}
                     value={values?.cnae}
                     component={TextField}
                     helperText={translate(errors.cnae as string)}
@@ -74,9 +78,10 @@ const EditModal = (props: any) => {
                     }
                   />
 
+                  <FormLabel>{translate('COMPANY:RESOURCES:FANTASY_NAME')}</FormLabel>
                   <Field
+                    sx={{ marginTop: 0 }}
                     name="fantasy_name"
-                    label={translate('COMPANY:RESOURCES:FANTASY_NAME')}
                     margin="normal"
                     required
                     fullWidth

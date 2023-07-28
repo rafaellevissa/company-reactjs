@@ -1,20 +1,18 @@
 import * as React from 'react';
 import { Formik, FormikConfig, FormikValues, Field } from 'formik'
-import { Button, Container, IconButton, Modal, Paper, Typography, TextField } from "@mui/material";
+import {  Container, IconButton, Modal, Paper, Typography, TextField, FormLabel } from "@mui/material";
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { useDispatch, useSelector } from 'react-redux';
 import { companySchema } from '../validator';
 import MaskedInput from '../../../../components/MaskedInput';
-import { find, update } from '../../../../store/modules/company/actions';
-import DatePicker from '../../../../components/DatePicker';
-import moment from 'moment'
+import { find } from '../../../../store/modules/company/actions';
 import { useTranslation } from '../../../../hooks/use-translation';
 
 const ShowModal = (props: any) => {
   const dispatch = useDispatch()
   const { itemEdit } = useSelector<any, any>(item => item.company)
   const [open, setOpen] = React.useState(false);
-  const {translate} = useTranslation()
+  const { translate } = useTranslation()
 
   React.useEffect(() => {
     if (open) {
@@ -25,14 +23,14 @@ const ShowModal = (props: any) => {
   const formikConfig: FormikConfig<FormikValues> = {
     enableReinitialize: true,
     initialValues: {
-      cnpj: itemEdit?.cnpj,
-      cnae: itemEdit?.cnae,
-      company_name: itemEdit?.company_name,
-      fantasy_name: itemEdit?.fantasy_name,
+      cnpj: itemEdit?.cnpj || '',
+      cnae: itemEdit?.cnae || '',
+      company_name: itemEdit?.company_name || '',
+      fantasy_name: itemEdit?.fantasy_name || '',
     },
     validationSchema: companySchema,
-    onSubmit: () => {},
-  }
+    onSubmit: () => { },
+  };
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -40,8 +38,8 @@ const ShowModal = (props: any) => {
   return (
     <>
       <IconButton aria-label="edit" onClick={handleOpen}>
-				<VisibilityIcon />
-			</IconButton>
+        <VisibilityIcon />
+      </IconButton>
       <Modal open={open} onClose={handleClose}>
         <Container component='main' maxWidth="xs" sx={{ position: 'absolute', top: '20%', left: '35%' }}>
           <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }} >
@@ -51,12 +49,13 @@ const ShowModal = (props: any) => {
             <Typography>
               {translate('COMPANY:SHOW_SUBTITLE')}
             </Typography>
-            <Formik {...formikConfig}>
+            <Formik  {...formikConfig}>
               {({ handleSubmit, values }) => (
                 <form onSubmit={handleSubmit}>
+                  <FormLabel>{translate('COMPANY:RESOURCES:CNPJ')}</FormLabel>
                   <Field
+                    sx={{ marginTop: 0 }}
                     name="cnpj"
-                    label={translate('COMPANY:RESOURCES:CNPJ')}
                     margin="normal"
                     mask='99.999.999/9999-99'
                     fullWidth
@@ -64,37 +63,44 @@ const ShowModal = (props: any) => {
                     value={values?.cnpj}
                     disabled
                   />
-
+                  <FormLabel>{translate('COMPANY:RESOURCES:CNAE')}</FormLabel>
                   <Field
+                    sx={{ marginTop: 0 }}
                     name="cnae"
-                    label={translate('COMPANY:RESOURCES:CNAE')}
                     margin="normal"
                     fullWidth
                     component={TextField}
+                    inputProps={{
+                      maxLength: 7,
+                      minLength: 7,
+                    }}
+                    disabled
                     value={values?.cnae}
-                    disabled
                   />
+
+                  <FormLabel>{translate('COMPANY:RESOURCES:COMPANY_NAME')}</FormLabel>
                   <Field
+                    sx={{ marginTop: 0 }}
                     name="company_name"
-                    label={translate('COMPANY:RESOURCES:COMPANY_NAME')}
                     margin="normal"
                     fullWidth
-                    component={TextField}
                     value={values?.company_name}
+                    component={TextField}
                     disabled
                   />
+                  <FormLabel>{translate('COMPANY:RESOURCES:FANTASY_NAME')}</FormLabel>
                   <Field
+                    sx={{ marginTop: 0 }}
                     name="fantasy_name"
-                    label={translate('COMPANY:RESOURCES:FANTASY_NAME')}
                     margin="normal"
                     fullWidth
-                    component={TextField}
                     value={values?.fantasy_name}
+                    component={TextField}
                     disabled
                   />
                 </form>
               )}
-              </Formik>
+            </Formik>
           </Paper>
         </Container>
       </Modal>

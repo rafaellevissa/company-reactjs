@@ -32,14 +32,6 @@ export function* login({ payload }: Action): Generator {
 
 export function* logout(): Generator {
   try {
-    const response: unknown = yield call(api.post, '/logout');
-
-    const { data, status } = response as AxiosResponse<{ revoked: boolean }>;
-
-    if (status !== 200 || !data.revoked) {
-      throw response;
-    }
-
     storage.removeItem('persist:@reactjschallenge');
 
     yield put({ type: ActionTypes.LOGOUT_SUCCESS });

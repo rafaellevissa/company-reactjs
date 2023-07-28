@@ -10,7 +10,7 @@ export function* add({ payload }: Action): Generator {
 
     const updatedPayload = {
       ...payload as Company,
-      cnpj 
+      cnpj
     };
     const response: unknown = yield call(api.post, '/company', updatedPayload);
 
@@ -60,9 +60,7 @@ export function* find({ payload }: Action): Generator {
 export function* list({ payload }: Action): Generator {
   try {
     const request = payload as Page;
-    const url = request.currentPage ?
-      `/company?page=${request.currentPage + 1}&perPage=${request.perPage}`:
-      '/company';
+    const url = `/company?start=${request.currentPage ?? 0}&limit=${request.perPage}`;
 
     const response: unknown = yield call(api.get, url);
 
@@ -112,7 +110,7 @@ export function* remove({ payload }: Action): Generator {
 export function* update({ payload }: Action): Generator {
   try {
     const request = payload as Company;
-    
+
     const { id, ...requestPayload } = request;
     const url = encodeURIComponent('/company/' + id);
 
