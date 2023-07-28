@@ -8,7 +8,7 @@ import storage from 'redux-persist/lib/storage';
 
 export function* login({ payload }: Action): Generator {
   try {
-    const response: unknown = yield call(api.post, '/login', payload);
+    const response: unknown = yield call(api.post, '/auth/login', payload);
 
     const { data, status } = response as AxiosResponse<Auth>;
 
