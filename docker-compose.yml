@@ -1,9 +1,5 @@
 version: '3.7'
 
-secrets:
-  company-reactjs:
-    external: true
-
 services:
   app:
     build: .
@@ -11,3 +7,5 @@ services:
       - 3000:80
     environment:
       - NODE_ENV=production
+    env_file:
+      - .env
